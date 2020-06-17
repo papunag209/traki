@@ -21,6 +21,11 @@
               {{message.body}}
             </p>
           </div>
+          <div
+            v-if="message.senderId === 2"
+          >
+            this should show up only in person 2
+          </div>
         </li>
       </ul>
     </div>
@@ -83,5 +88,4 @@ export default {
 </script>
 
 <style>
-
 </style>
