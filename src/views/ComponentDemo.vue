@@ -16,13 +16,23 @@
     <div>
       <div>
         <form v-on:submit.prevent="sendMessage(1)">
-          <input type="text" v-model="messageInput1">
+          <label for="person1input">person 1:</label>
+          <input
+            id="person1input"
+            type="text"
+            v-model="messageInput1"
+          >
           <button type="submit">გაგზავნა</button>
         </form>
       </div>
       <div>
         <form v-on:submit.prevent="sendMessage(2)">
-          <input type="text" v-model="messageInput2">
+          <label for="person2input">person 2:</label>
+          <input 
+            id="person2input"
+            type="text"
+            v-model="messageInput2"
+          >
           <button type="submit">გაგზავნა</button>
         </form>
       </div>
