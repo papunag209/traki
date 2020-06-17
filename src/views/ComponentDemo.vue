@@ -5,11 +5,22 @@
     </h1>
     <div>
       <ul>
-        <li 
+        <li
           v-for="(message, index) in messages"
           :key="message.body + index"
+          v-bind:class="{
+            'is-person-1-message': message.senderId === 1,
+            'is-person-2-message': message.senderId === 2,
+          }"
         >
-          person {{message.senderId}} says {{message.body}}
+          <div class="message-box">
+            <p>
+              person {{message.senderId}} says {{message.body}}
+            </p>
+            <p>
+              {{message.body}}
+            </p>
+          </div>
         </li>
       </ul>
     </div>
