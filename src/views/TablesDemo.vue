@@ -76,7 +76,7 @@
         </p>
         <div>
             <label>Contact info</label>
-            <button @click.prevent="addContactField">Add Contact Line</button>
+            <div @click.prevent="addContactField">Add Contact Line</div>
             <ul>
                 <li v-for="(contact, index) in rowInput.contacts"
                     :key="'contact-'+index"
