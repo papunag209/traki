@@ -3,34 +3,30 @@
     <h1>
       this is component test page that implements basic chat
     </h1>
-    <div>
-      <ul>
+    <div class="message-window-wrapper">
+      <ul class="messages-list">
         <li
           v-for="(message, index) in messages"
           :key="message.body + index"
           v-bind:class="{
-            'is-person-1-message': message.senderId === 1,
-            'is-person-2-message': message.senderId === 2,
+            'flex-container flex-justify-right ': message.senderId === 1,
+            'flex-container .message-window-wrapper ': message.senderId === 2,
           }"
         >
-          <div class="message-box">
-            <p>
-              person {{message.senderId}} says {{message.body}}
-            </p>
-            <p>
+          <div class="message-wrapper">
+            <div class="message-sender-id">
+              sender is: {{message.senderId}}
+            </div>
+            <div>
               {{message.body}}
-            </p>
+            </div>
           </div>
-          <div
-            v-if="message.senderId === 2"
-          >
-            this should show up only in person 2
-          </div>
+
         </li>
       </ul>
     </div>
-    <div>
-      <div>
+    <div class="inputs">
+      <div class="person-input-1">
         <form v-on:submit.prevent="sendMessage(1)">
           <label for="person1input">person 1:</label>
           <input
@@ -38,10 +34,10 @@
             type="text"
             v-model="messageInput1"
           >
-          <button type="submit">გაგზავნა</button>
+          <button type="submit" >gagzavna</button>
         </form>
       </div>
-      <div>
+      <div class="person-input-2">
         <form v-on:submit.prevent="sendMessage(2)">
           <label for="person2input">person 2:</label>
           <input 
@@ -49,7 +45,7 @@
             type="text"
             v-model="messageInput2"
           >
-          <button type="submit">გაგზავნა</button>
+          <button type="submit">gagzavna</button>
         </form>
       </div>
     </div>
@@ -87,5 +83,38 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.flex-container {
+  display: flex;
+  padding: 9px;
+}
+
+.flex-justify-right {
+  justify-content: flex-end;
+}
+
+.is-message-1 {
+  background-color: rgb(201, 66, 255);
+}
+
+.is-message-1 .message-wrapper .message-sender-id {
+  background-color: green;
+}
+
+.message-window-wrapper {
+  background-color: rgb(99, 245, 221);
+  width: 780px;
+  height: 544px;
+  margin: auto;
+  border-radius: 15px;
+}
+
+
 </style>
